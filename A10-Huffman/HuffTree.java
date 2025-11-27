@@ -56,7 +56,7 @@ public class HuffTree {
     private static BinaryTree<Character> insertIntroTree(BinaryTree<Character> tree, String pattern, char ch){
         // if tree is empty, create a root node
         if (tree == null){
-            tree = new BinaryTree<Character>(null); // root has null data initially
+            tree = new BinaryTree<Character>((Character)null); // root has null data initially
         }
         }
 
@@ -70,14 +70,14 @@ public class HuffTree {
 
                 // go left, create node if needed
                 if (current.getLeft() == null){
-                    current.setLeft(new BinaryTree<Character>(null));
+                    current.setLeft(new BinaryTree<Character>((Character)null));
                 }
                 current = current.getLeft();
             }else {
 
                 // go right, create node if needed
                 if (current.getRight() == null){
-                    current.setRight(new BinaryTree<Character>(null));
+                    current.setRight(new BinaryTree<Character>((Character)null));
                 }
                 current = current.getRight();
             }
