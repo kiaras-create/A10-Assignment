@@ -30,7 +30,7 @@ public class HuffTree {
                 char ch = (char) ascii;
 
                 // insert the character into the tree following the bit pattern
-                tree = insertIntroTree(tree, pattern, ch);
+                tree = insertIntoTree(tree, pattern, ch);
             
             }
 
@@ -53,12 +53,12 @@ public class HuffTree {
      * @param ch the character to insert
      * @return BinaryTree<Character> the updated tree
      */
-    private static BinaryTree<Character> insertIntroTree(BinaryTree<Character> tree, String pattern, char ch){
+    private static BinaryTree<Character> insertIntoTree(BinaryTree<Character> tree, String pattern, char ch){
         // if tree is empty, create a root node
         if (tree == null){
             tree = new BinaryTree<Character>((Character)null); // root has null data initially
         }
-        }
+        
 
         BinaryTree<Character> current = tree; // start at root
 
@@ -68,14 +68,14 @@ public class HuffTree {
 
             if (bit == '0') {
 
-                // go left, create node if needed
+                // go left and create node if needed
                 if (current.getLeft() == null){
                     current.setLeft(new BinaryTree<Character>((Character)null));
                 }
                 current = current.getLeft();
             }else {
 
-                // go right, create node if needed
+                // go right and create node if needed
                 if (current.getRight() == null){
                     current.setRight(new BinaryTree<Character>((Character)null));
                 }
@@ -87,5 +87,7 @@ public class HuffTree {
         return tree;
     }
 }
+
+
     
 

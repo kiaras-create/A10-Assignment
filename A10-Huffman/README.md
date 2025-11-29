@@ -12,3 +12,4 @@ Any references used besides JavaDoc and course materials (including AI consultat
 ## Assignment Reflection
 
 Please reflect on your experience with this assignment. What was most challenging? What was most interesting?  What did you learn that you might use again?
+Shakila Jafari - This assignment was kind of challenging for me mostly figuring out how to build the Huffman tree from the file. I kept running into issues with traversal but it was nice to see the tree finally come together. I learned a lot about using a generic BinaryTree and inserting nodes based on patterns.
