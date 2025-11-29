@@ -101,18 +101,22 @@ public class HuffEncode {
     }
 
     public static void main(String[] args) {
+        // makes sure that 2 arguments were provided
+        // if not, prints message to indicate invalid number of arguments
         if (args.length < 2) {
             System.out.println("Usage: java HuffEncode <codeFile> <plaintextFile>");
             return;
         }
 
+        // stores file containing ASCII values and its bit patterns, will be used for hashmap
         String codeFile = args[0];
+        // stores file w/plain text that we want to encode
         String plaintextFile = args[1];
 
-        // build the encoding table
+        // creates hashmap w/character key and corresponding bit pattern values
         buildMap("DefaultTree.txt");
 
-        // encode the text from the file
+        // encodes plain text
         encodeText("Original.txt", encodeMap);
 
     }
