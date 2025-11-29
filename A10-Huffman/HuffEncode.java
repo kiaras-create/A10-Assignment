@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+
 public class HuffEncode {
 
     /**
@@ -59,13 +60,15 @@ public class HuffEncode {
      * converts plain text to encoded text by using hashmap/hash table
      * 
      * @param filename, the file name containing text we want to encode
-     * @param table,    the hashmap/hashtable containing characters and its corresponding ASCII values
+     * @param table,    the hashmap/hashtable containing characters and its
+     *                  corresponding ASCII values
      * @return the encoded text
      */
     public static String encodeText(String filename, Map<Character, String> table) {
         Scanner file = null;
-        // will hold the ASCII values as an arraylist
-        ArrayList<String> encodeTextList = new ArrayList<String>();
+        // will store the bit pattern values
+        StringBuilder encodedText = new StringBuilder();
+
 
         // creates a scanner based off founded file
         try {
@@ -85,23 +88,32 @@ public class HuffEncode {
                 char c = line.charAt(i);
 
                 // finds the character key in the hashmap (ascii)
-                // adds the key's value to the arraylist
-                encodeTextList.add(encodeMap.get(c));
+                // appends the key's value to encodedText
+                encodedText.append(encodeMap.get(c));
             }
 
         }
         file.close();
 
-        // converts the arraylist containing encoded text into a string
-        String encodedText = encodeTextList.toString();
         System.out.println("This is the encoded text " + encodedText);
-        return encodedText;
+        return encodedText.toString();
 
     }
 
     public static void main(String[] args) {
-        buildMap("DefaultTree.txt");
-        encodeText("Original.txt", encodeMap);
-    }
+        if (args.length < 2) {
+            System.out.println("Usage: java HuffEncode <codeFile> <plaintextFile>");
+            return;
+        }
 
+        String codeFile = args[0];
+        String plaintextFile = args[1];
+
+        // build the encoding table
+        buildMap("DefaultTree.txt");
+
+        // encode the text from the file
+        encodeText("Original.txt", encodeMap);
+
+    }
 }
