@@ -1,7 +1,68 @@
 import java.io.File;
 import java.util.Scanner;
 
-public class HuffTree {
+public class HuffTree extends BinaryTree<Character> {
+
+     /**
+    * @param data
+    */
+   public HuffTree(Character data) {
+       super(data);
+   }
+
+
+   /**
+    * @param data
+    * @param left
+    * @param right
+    */
+   public HuffTree(Character data, HuffTree left, HuffTree right) {
+       super(data, left, right);
+   }
+
+
+   /**
+    * @param other
+    */
+   public HuffTree(HuffTree other) {
+       super(other);
+   }
+
+
+   // overwriting specialized methods
+   @Override
+   public HuffTree getLeft() {
+       return (HuffTree) super.getLeft();
+   }
+
+
+   @Override
+   public HuffTree getRight() {
+       return (HuffTree) super.getRight();
+   }
+
+
+
+
+   /**
+    * @param left
+    */
+   public void setLeft(HuffTree left) {
+       super.setLeft(left);
+   }
+
+
+
+
+
+
+   /**
+    * @param right
+    */
+   public void setRight(HuffTree right) {
+       super.setRight(right);
+   }
+
 
     /**
      * Reads a Huffman tree from a given filename 
